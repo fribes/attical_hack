@@ -11,8 +11,9 @@ Unfortunetaly, the call to fread is buggy, and no more than 1 symbol is accepted
 Sticking with 1 length long:
 
 Content-Length: 1
+
 e
 
 results in calls to dxxxx depending of memory state, until a 0x00 byte is found.
 With several runs, you eventually get a call to "d" alone. With a PATH starting with current directory, and a sym link d pointing to /bin/getflag, getflag is called.
-But it does gives the flag :-( WTF ?
+But it does not gives the flag :-( WTF ?
