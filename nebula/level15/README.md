@@ -14,6 +14,9 @@ level15@nebula:~$ nm ../flag15/flag15 | grep U
          U puts@@GLIBC_2.0
 ```
 
-__libc_start_main() looks great has a hook to put our code
+__libc_start_main() looks great has a hook to put our code. It is a standard function. Its prototype can be found [ex](http://refspecs.linuxbase.org/LSB_3.1.1/LSB-Core-generic/LSB-Core-generic/baselib---libc-start-main-.html)
+
+Let's invoke a shell [see source](fakelib.c)
+
 
 This library needs to have all its dependencies linked statically, whereas being a shared lib itself, hence the flags in Makefile.
