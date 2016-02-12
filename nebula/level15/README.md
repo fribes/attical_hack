@@ -15,8 +15,10 @@ level15@nebula:~$ nm ../flag15/flag15 | grep U
 ```
 
 __libc_start_main() looks great has a hook to put our code. It is a standard function. Its prototype can be found [here for example](http://refspecs.linuxbase.org/LSB_3.1.1/LSB-Core-generic/LSB-Core-generic/baselib---libc-start-main-.html)
+It will be run before main().
 
-Let's invoke a shell [see source](fakelib.c)
-
+Let's use it to invoke a shell [see source](fakelib.c)
 
 This library needs to have all its dependencies linked statically, whereas being a shared lib itself, hence the flags in [Makefile](Makefile).
+Note that the version information required by flag15 in the symbols : @@GLIBC_2.0
+The linker must be told through flags to use a version.map file: -Wl,--version-script=version.map
