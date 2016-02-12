@@ -19,4 +19,4 @@ __libc_start_main() looks great has a hook to put our code. It is a standard fun
 Let's invoke a shell [see source](fakelib.c)
 
 
-This library needs to have all its dependencies linked statically, whereas being a shared lib itself, hence the flags in [Makefile].
+This library needs to have all its dependencies linked statically, whereas being a shared lib itself, hence the flags in [Makefile](Makefile).
